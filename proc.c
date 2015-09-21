@@ -102,6 +102,10 @@ userinit(void)
   p->state = RUNNABLE;
 }
 
+
+/*
+ * Function to count the current number of processes running in ptable
+ */
 int sys_getpcount(void){
 	struct proc *p;
 	int counter = 0;
