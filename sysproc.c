@@ -42,7 +42,7 @@ sys_getpid(void)
   return proc->pid;
 }
 
-int sys_getpcount(void){
+//int sys_getpcount(void){
 	//struct proc *p;
 	//int counter = 12;
 
@@ -53,8 +53,8 @@ int sys_getpcount(void){
 	//	}
 	//}
 
-	return 12;
-}
+	//return 12;
+//}
 
 int
 sys_sbrk(void)
