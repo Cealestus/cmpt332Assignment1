@@ -42,20 +42,6 @@ sys_getpid(void)
   return proc->pid;
 }
 
-//int sys_getpcount(void){
-	//struct proc *p;
-	//int counter = 12;
-
-	//acquire(&ptable.lock);
-	//for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-	//	if(p->state != UNUSED){
-	//		counter++;
-	//	}
-	//}
-
-	//return 12;
-//}
-
 int
 sys_sbrk(void)
 {
