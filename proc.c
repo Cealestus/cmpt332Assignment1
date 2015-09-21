@@ -102,6 +102,21 @@ userinit(void)
   p->state = RUNNABLE;
 }
 
+int sys_getpcount(void){
+	struct proc *p;
+	int counter = 0;
+
+	acquire(&ptable.lock);
+	for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+		if(p->state != UNUSED){
+			counter++;
+		}
+	}
+	release(&ptable.lock);
+
+	return counter;
+}
+
 // Grow current process's memory by n bytes.
 // Return 0 on success, -1 on failure.
 int
