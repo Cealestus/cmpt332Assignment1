@@ -106,7 +106,8 @@ userinit(void)
 
 
 /*
- * Function to count the current number of processes running in ptable
+ * Function to count the current number of processes existing in ptable
+ * Returns: Integer containing number of processes currently in existence
  */
 int sys_getpcount(void){
 	struct proc *p;
