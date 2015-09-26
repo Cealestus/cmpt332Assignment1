@@ -25,6 +25,7 @@ main()
 
 	//printf( "%s\n" , ar);
 	
+	
 	char *line = NULL;
 	ssize_t bufsize = 0;
 	getline(&line, &bufsize, stdin);
