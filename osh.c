@@ -31,27 +31,25 @@ main()
 	getline(&line, &bufsize, stdin);
 	printf("%s\n", line);
 
-
-
-
-
-
-
-
-/*		
-	fgets(      );
-
-	char * pch;
-	pch = strtok( argv[], " \n");
 	
-	while(pch != NULL){
+	char **chArray  = malloc(128 * sizeof(char*));
+	char *pch;
+
+	int pos=0;
+	pch = strtok( line, " \n");
+
+	while(pch != NULL) {
+		chArray[pos]= pch;
+		pos= pos + 1;
 		
 		pch = strtok( NULL, " \n ");
 	}
+	chArray[pos] = NULL;
+	
 	
 
 
-
+/*
 	int rc = fork();
         /* fork failed; exit
 	if (rc < 0) {
