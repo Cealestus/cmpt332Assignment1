@@ -14,11 +14,22 @@ int
 main()
 {
 	
-	char *line = NULL;
-	ssize_t size = 0;
-	getline(&line, &size, stdin);
-	printf( "%s\n" , line);
+<<<<<<< HEAD
+	//char ar[30];
+	//fgets(ar , 40, stdin);
+	//char *str2 = "exit";
+
+	//if (strncmp(ar, str2, 1000)){
+	//	return 0;
+	//}
+
+	//printf( "%s\n" , ar);
+>>>>>>> ef5fd8234821c5bf911c16cc57608e255d294dda
 	
+	char *line = NULL;
+	ssize_t bufsize = 0;
+	getline(&line, &bufsize, stdin);
+	printf("%s\n", line);
 
 
 
