@@ -38,29 +38,29 @@ main()
 	chArray[pos] = NULL;
 	
 		
-	execvp(chArray[0],chArray); 
+	execvp(chArray[0],chArray);
+	int arPos ;
+	for(arPos = pos; arPos>0; arPos-- ){
+		if(*chArray[arPos] == '|'){
+			int rc = fork();
+			if (rc<0){
+				fprintf(stderr, "fork Failed\n");
+				exit(1);
+			}
+			else if (rc ==0) {
+				execvp(chArray[arPos +1], chArray);
+				printf(" shouldnt hit here");
+			}
+			else {
+				int wc = wait(NULL);
+			}
 
-/*
-	int rc = fork();
-        ... fork failed; exit
-	if (rc < 0) {
-		fprintf(stderr, "fork failed\n");
-		exit(1);
-	... child: redirect standard output to a file
-	} else if (rc == 0) { 
-		close(STDOUT_FILENO);
-		open("./p4.output", O_CREAT|O_WRONLY|O_TRUNC, S_IRWXU);
-			
-		... now exec "wc"...
-		char *myargs[3];
-		myargs[0] = strdup("wc");
-		myargs[1] = strdup("p4.c");
-		myargs[2] = NULL;
-		execvp(myargs[0], myargs);
-	} else { ... parent
-	int wc = wait(NULL);
+		}
+
+	
+
 	}
-*/
+
 	return 0;
 }
 
