@@ -14,7 +14,7 @@ int
 main()
 {
 	
-<<<<<<< HEAD
+
 	//char ar[30];
 	//fgets(ar , 40, stdin);
 	//char *str2 = "exit";
@@ -24,7 +24,6 @@ main()
 	//}
 
 	//printf( "%s\n" , ar);
->>>>>>> ef5fd8234821c5bf911c16cc57608e255d294dda
 	
 	char *line = NULL;
 	ssize_t bufsize = 0;
