@@ -14,22 +14,9 @@ int
 main()
 {
 	
-
-	//char ar[30];
-	//fgets(ar , 40, stdin);
-	//char *str2 = "exit";
-
-	//if (strncmp(ar, str2, 1000)){
-	//	return 0;
-	//}
-
-	//printf( "%s\n" , ar);
-	
 	char *line = NULL;
 	ssize_t bufsize = 0;
 	getline(&line, &bufsize, stdin);
-	printf("%s\n", line);
-
 	
 	char **chArray  = malloc(128 * sizeof(char*));
 	char *pch;
@@ -43,6 +30,8 @@ main()
 		
 		pch = strtok( NULL, " \n ");
 	}
+
+
 	chArray[pos] = NULL;
 	
 	
