@@ -18,10 +18,11 @@ main()
 	char ** chArray = malloc(128 * sizeof(char*));
 	char *pch;
 	int pos = 0;
-	
+	int arPos;
+	int wc;
+	int rc;	
 	char osh[4] = "osh>";
 	printf("%s", osh);
-
 
 	getline(&line, &bufsize, stdin);
 	
@@ -34,15 +35,16 @@ main()
 		pch = strtok( NULL, " \n ");
 	}
 
-	
 	chArray[pos] = NULL;
 	
+	arPos = pos-1;
+
+	while(arPos>0 ){
 		
-	execvp(chArray[0],chArray);
-	int arPos ;
-	for(arPos = pos; arPos>0; arPos-- ){
 		if(*chArray[arPos] == '|'){
-			int rc = fork();
+			
+			rc = fork();
+			
 			if (rc<0){
 				fprintf(stderr, "fork Failed\n");
 				exit(1);
@@ -52,15 +54,14 @@ main()
 				printf(" shouldnt hit here");
 			}
 			else {
-				int wc = wait(NULL);
+				wc = wait(NULL);
 			}
-
+			chArray[arPos] =NULL;
 		}
-
-	
+		arPos--;
 
 	}
-
+	execvp(chArray[0], chArray);
 	return 0;
 }
 
