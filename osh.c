@@ -38,11 +38,13 @@ main()
 	chArray[pos] = NULL;
 	
 	arPos = pos-1;
+	
 
 	while(arPos>0 ){
 		
 		if(*chArray[arPos] == '|'){
-			
+			int pip[2];
+			pipe(pip);
 			rc = fork();
 			
 			if (rc<0){
@@ -50,6 +52,10 @@ main()
 				exit(1);
 			}
 			else if (rc ==0) {
+				close(pip[0]);
+				dup2(pip[1],1);
+				close(pip[1]);
+				
 				execvp(chArray[arPos +1], chArray);
 				printf(" shouldnt hit here");
 			}
@@ -61,7 +67,9 @@ main()
 		arPos--;
 
 	}
-	execvp(chArray[0], chArray);
+	
+	 /*  execvp(chArray[0], chArray);*/
+
 	return 0;
 }
 
