@@ -14,16 +14,20 @@ int
 main()
 {
 	
-	char ar[30];
-	fgets(ar , 40, stdin);
-	char *str2 = "exit";
+	//char ar[30];
+	//fgets(ar , 40, stdin);
+	//char *str2 = "exit";
 
-	if (strncmp(ar, str2, 1000)){
-		return 0;
-	}
+	//if (strncmp(ar, str2, 1000)){
+	//	return 0;
+	//}
 
-	printf( "%s\n" , ar);
+	//printf( "%s\n" , ar);
 	
+	char *line = NULL;
+	ssize_t bufsize = 0;
+	getline(&line, &bufsize, stdin);
+	printf("%s\n", line);
 
 
 
