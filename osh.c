@@ -13,22 +13,6 @@
 int
 main()
 {
-	
-<<<<<<< HEAD
-
-	//char ar[30];
-	//fgets(ar , 40, stdin);
-	//char *str2 = "exit";
-
-	//if (strncmp(ar, str2, 1000)){
-	//	return 0;
-	//}
-
-	//printf( "%s\n" , ar);
-	
-	
-=======
->>>>>>> 601d0bf0fb10c087d9649b93cb4af8a6acb0e08a
 	char *line = NULL;
 	ssize_t bufsize = 0;
 	getline(&line, &bufsize, stdin);
