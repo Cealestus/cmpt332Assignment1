@@ -20,9 +20,9 @@ main()
 	int pos = 0;
 	
 	char osh[4] = "osh>";
-
-
 	printf("%s", osh);
+
+
 	getline(&line, &bufsize, stdin);
 	
 	pch = strtok( line, " \n");
@@ -34,11 +34,11 @@ main()
 		pch = strtok( NULL, " \n ");
 	}
 
-
+	
 	chArray[pos] = NULL;
 	
-	
-
+		
+	execvp(chArray[0],chArray); 
 
 /*
 	int rc = fork();
