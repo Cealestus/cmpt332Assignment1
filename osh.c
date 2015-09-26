@@ -18,6 +18,11 @@ main()
 	char ** chArray = malloc(128 * sizeof(char*));
 	char *pch;
 	int pos = 0;
+	
+	char osh[4] = "osh>";
+
+
+	printf("%s", osh);
 	getline(&line, &bufsize, stdin);
 	
 	pch = strtok( line, " \n");
