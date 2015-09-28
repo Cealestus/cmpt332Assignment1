@@ -53,7 +53,7 @@ main()
 			}
 			else if (rc ==0) {
 				close(pip[0]);
-				dup2(pip[1],1);
+				dup2(pip[1],STDOUT_FILENO);
 				close(pip[1]);
 				
 				execvp(chArray[arPos +1], chArray);
@@ -61,6 +61,7 @@ main()
 			}
 			else {
 				wc = wait(NULL);
+				dup2(pip[0], STDIN_FILENO);
 			}
 			chArray[arPos] =NULL;
 		}
