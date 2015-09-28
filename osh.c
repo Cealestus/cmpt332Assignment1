@@ -68,7 +68,7 @@ main()
 
 	}
 	
-	 /*  execvp(chArray[0], chArray);*/
+	execvp(chArray[0], chArray);
 
 	return 0;
 }
