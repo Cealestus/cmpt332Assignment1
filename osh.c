@@ -66,8 +66,7 @@ main()
 		}
 		arPos--;
 
-	}
-	
+	}	
 	execvp(chArray[0], chArray);
 
 	return 0;
