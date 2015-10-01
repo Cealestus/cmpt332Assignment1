@@ -7,7 +7,15 @@
 #include <fcntl.h>
 #include <sys/wait.h>
 
+#define MAXARGS 10
 
+
+
+
+struct commands
+{
+	char *arg[4];
+};
 
 
 int
@@ -18,33 +26,76 @@ main()
 	char ** chArray = malloc(128 * sizeof(char*));
 	char *pch;
 	int pos = 0;
-	int arPos;
+	int pos2 = 0;
+	/*int arPos;
 	int wc;
-	int rc;
+	int rc;*/
+	 
+	struct commands com[5];
 
 	char osh[4] = "osh>";
-	while(1){
-		printf("%s", osh);
+	while(1){	
+		
 	
 
+		printf("%s", osh);
+		
+		/*com = malloc(sizeof(MAXARGS/2));*/
+			
 		getline(&line, &bufsize, stdin);
-
+		
+		
 		if(strcmp(line, "exit\n")==0){
 			return 0;
 		}
-
+		
 		pch = strtok( line, " \n");
+		
+		int i ;
+		int x;
+		for (i = 0 ; i <= 3 ; i++ ) {
+		         for (x =0; x<= 3; x++){
+		                 if(com[i].arg[x] !=NULL){
+			                   com[i].arg[x] = NULL;
+				 }
+			}
+		}
 
-		int pipeDelim = 0;
+
 
 		while(pch != NULL) {
-			chArray[pos]= pch;
-			pos= pos + 1;
-			pipeDelim= pipeDelim +1;
+			if(strcmp(pch,"|")==0){
+				pos++;
+				pos2=0;
+				pch=strtok(NULL, " \n");
+			}
+			com[pos].arg[pos2]= pch;
+			pos2 = pos2 + 1;
+			
 			pch = strtok( NULL, "|\n ");
+			
 		}
+		int a;
+		int b;
+		for ( a = 0 ; a <= 2 ; a++ ) {
+			for (  b = 0; b <= 3; b++){
+				if(com[a].arg[b] != NULL){
+					printf("%s", com[a].arg[b]);
+				}
+			}
+			printf("\n");
+		}
+
+
+
+
+
+
 		chArray[pos] = NULL;
+		/*execvp(chArray[0], chArray);*/
 	}
+
+	
 	
 /*
 	
